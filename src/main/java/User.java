@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.logging.Logger;
 
 public class User {
 
@@ -12,6 +13,8 @@ public class User {
     private int delays;                     // Number of days delayed?
     private Date suspendedDate;
     Book [] bookList = new Book [itemsBorrowed];
+    // private final Logger logger = Logger.getLogger(<>.class);
+
 
 
     public User() {
