@@ -1,18 +1,20 @@
+import java.util.Date;
+
 public class Book {
 
     private int id;
     private int isbn;
     private String title;
-    private int noOfCopys;
+    private Date dateBorrowed;
 
-    public void Book () {
+    public Book() {
     }
 
-    public void Book (int id, int isbn, String title, int noOfCopys) {
+    public Book (int id, int isbn, String title, Date dateBorrowed)  {
         this.id = id;
-        this. isbn = isbn;
+        this.isbn = isbn;
         this.title = title;
-        this. noOfCopys = noOfCopys;
+        this.dateBorrowed = dateBorrowed;
     }
 
     public int getId() {
@@ -39,11 +41,11 @@ public class Book {
         this.title = title;
     }
 
-    public int getNoOfCopys() {
-        return noOfCopys;
+    public Date getDateBorrowed() {
+        return dateBorrowed;
     }
 
-    public void setNoOfCopys(int noOfCopys) {
-        this.noOfCopys = noOfCopys;
+    public void setDateBorrowed(Date dateBorrowed) {
+        this.dateBorrowed = dateBorrowed;
     }
 }

@@ -1,31 +1,48 @@
 import java.util.Date;
-import java.util.logging.Logger;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
 
 public class User {
 
-    private int id;
-    private String fNamn;
-    private String lNamn;
-    private int pId;
-    private int itemsBorrowed;
-    private int borrowLimit;
-    private int active;                     // Boolen istället?
-    private int delays;                     // Number of days delayed?
-    private Date suspendedDate;
-    Book [] bookList = new Book [itemsBorrowed];
-    // private final Logger logger = Logger.getLogger(<>.class);
+    /** Value for "type"
+        3 = Undergradute, max = 3
+        5 = Postgraduate, max 5
+        7 = PHD/candidate, max 7
+        10 = Teacher/Professor max 10
+     **/
 
-
+    /** Value for "active"
+     *  1 = active
+     *  2 = not active
+     */
 
     public User() {
     }
 
-    public User(int id, String fNamn, String lNamn, int pId, int itemsBorrowed, int active, int delays, Date suspendedDate) {
+    private int id;
+    private String fNamn;
+    private String lNamn;
+    int pId;
+    private int type;
+    private int itemsBorrowed;
+    private int borrowLimit;
+    private int active;                     // Boolen istället?
+    int delays;                     // Number of days delayed?
+    private Date suspendedDate;
+    Book [] bookList = new Book [itemsBorrowed];
+
+
+
+    public User(int id, String fNamn, String lNamn, int pId, int type, int itemsBorrowed, int borrowLimit, int active, int delays, Date suspendedDate) {
         this.id = id;
         this.fNamn = fNamn;
         this.lNamn = lNamn;
         this.pId = pId;
+        this.type = type;
         this.itemsBorrowed = itemsBorrowed;
+        this.borrowLimit = borrowLimit;
         this.active = active;
         this.delays = delays;
         this.suspendedDate = suspendedDate;
@@ -62,6 +79,14 @@ public class User {
 
     public void setpId(int pId) {
         this.pId = pId;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getItemsBorrowed() {
